@@ -11,8 +11,8 @@ export class LoginComponent {
   password: string;
 
   constructor() {
-    this.username = "";
-    this.password = "";
+    this.username = '';
+    this.password = '';
   }
 
   onSubmit() {
