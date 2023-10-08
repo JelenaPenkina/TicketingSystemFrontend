@@ -1,1 +1,15 @@
-<p>home works!</p>
+
+<p>Welcome to the Ticketing System homepage</p>
+
+<form (ngSubmit)="submitTicket()">
+    <div class="form-group">
+        <label for="title">Ticket title</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newTicket.title" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Ticket discription</label>
+        <textarea id="description" name="description" [(ngModel)]="newTicket.description" required></textarea>
+    </div>
+    <button type="submit">Create ticket</button>
+
+</form>

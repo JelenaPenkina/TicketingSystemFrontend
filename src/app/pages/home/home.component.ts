@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  newTicket: {title: string, description: string} = {title: '', description: ''};
+
+  submitTicket() {
+    console.log('New ticket: ', this.newTicket)
+  }
 
 }
