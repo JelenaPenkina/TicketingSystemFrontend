@@ -9,12 +9,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InProgressTicketsComponent } from './in-progress-tickets/in-progress-tickets.component';
+import { DoneTicketsComponent } from './done-tickets/done-tickets.component';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    InProgressTicketsComponent,
+    DoneTicketsComponent,
+    TicketListComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

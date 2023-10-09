@@ -1,5 +1,19 @@
-<div>
-<p>Welcome to the Ticketing System homepage</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div>
+    <a class="navbar-brand" href="#">Ticketing System</a>  
+    <button (click)="selectedOption = 'welcome'">Welcome</button>
+    <button (click)="selectedOption = 'in-progress'">In Progress</button>
+    <button (click)="selectedOption = 'done'">Done</button>
+  </div>
+  <div [ngSwitch]="selectedOption">
+    <div *ngSwitchCase="'welcome'"></div>
+    <div *ngSwitchCase="'in-progress'">
+    </div>
+    <div *ngSwitchCase="'done'">
+    </div>
+  </div>
+</nav>
+
 
 <form (ngSubmit)="submitTicket()">
     <div class="form-group">
@@ -10,7 +24,13 @@
         <label for="description">Ticket discription</label>
         <textarea id="description" name="description" [(ngModel)]="newTicket.description" required></textarea>
     </div>
-    <button type="submit">Create ticket</button>
-
+    <button (click)="toggleCreateButtonClass()" [ngClass]="{'blue-button': createButtonClicked}">
+      Create ticket
+    </button>
 </form>
-</div>
+
+<!--
+  <div *ngFor="let ticket of tickets">
+  <h3>{{ ticket.title }}</h3>
+  <p>{{ ticket.description }}</p>
+</div> -->

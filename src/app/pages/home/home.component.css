@@ -1,0 +1,21 @@
+.blue-button {
+    background-color: blue;
+    color: white;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
