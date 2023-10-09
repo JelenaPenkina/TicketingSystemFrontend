@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { UserLoginReponse } from '../../types/login'
 
 @Component({
   selector: 'app-login',
@@ -7,17 +10,20 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  username: string;
-  password: string;
+  username: string = '';
+  password: string = '';
 
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router) { } 
 
   onSubmit() {
-    console.log(this.username)
-    console.log(this.password)
-  }
+    this.authService.login(this.username, this.password)
+      .subscribe((data: UserLoginReponse) => {// subscribe function is to kinda notifis us when fetch is complete then to logic inside brackets
 
+
+        console.log(data)
+        this.router.navigate(['/']);
+      });
+  }
 }
