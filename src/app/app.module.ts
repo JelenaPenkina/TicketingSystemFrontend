@@ -10,14 +10,18 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TicketComponent } from './pages/ticket/ticket.component'
+import { TicketComponent } from './pages/ticket/ticket.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    TicketComponent
+    TicketComponent,
+    NavbarComponent,
+    LoginDropdownComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,0 +1,34 @@
+.background-container {
+    background-color: rgb(54, 142, 142);
+    height: 80vh; 
+    padding: 20px; 
+  }
+  
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+  .text-white h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .text-dark.display-2 {
+    color: #333; 
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .img-fluid {
+    max-width: 100%; 
+    height: auto;
+  }
+  
+  .img-fluid:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+  }
