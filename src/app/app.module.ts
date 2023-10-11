@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketComponent } from './pages/ticket/ticket.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
+import { CreateTicketComponent } from './pages/create-ticket/create-ticket.component';
+import { ActiveTicketsComponent } from './pages/active-tickets/active-tickets.component';
+import { TicketHistoryComponent } from './pages/ticket-history/ticket-history.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { LoginDropdownComponent } from './login-dropdown/login-dropdown.componen
     HomeComponent,
     TicketComponent,
     NavbarComponent,
-    LoginDropdownComponent
+    LoginDropdownComponent,
+    CreateTicketComponent,
+    ActiveTicketsComponent,
+    TicketHistoryComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
