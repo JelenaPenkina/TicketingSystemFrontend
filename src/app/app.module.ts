@@ -16,6 +16,7 @@ import { LoginDropdownComponent } from './login-dropdown/login-dropdown.componen
 import { CreateTicketComponent } from './pages/create-ticket/create-ticket.component';
 import { ActiveTicketsComponent } from './pages/active-tickets/active-tickets.component';
 import { TicketHistoryComponent } from './pages/ticket-history/ticket-history.component';
+import { TicketService } from './ticket.service'; // Import your service
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { TicketHistoryComponent } from './pages/ticket-history/ticket-history.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
