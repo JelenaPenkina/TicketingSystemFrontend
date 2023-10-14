@@ -13,6 +13,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InProgressTicketsComponent } from './in-progress-tickets/in-progress-tickets.component';
 import { DoneTicketsComponent } from './done-tickets/done-tickets.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { AgentComponent } from './pages/agent/agent.component';
+import { ActiveTicketsComponent } from './active-tickets/active-tickets.component';
+import { EditComponent } from './pages/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
     NavbarComponent,
     InProgressTicketsComponent,
     DoneTicketsComponent,
-    TicketListComponent
+    TicketListComponent,
+    CustomerComponent,
+    AgentComponent,
+    ActiveTicketsComponent,
+    EditComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkWithHref } from '@angular/router';
-import { TicketService } from '../api/v1/ticket'; // сервис создам позже
+import { TicketService } from '//api/v1/ticket'; // сервис создам позже
 
 @Component({
   selector: 'app-home',
@@ -21,12 +21,8 @@ export class HomeComponent implements OnInit{
   
   loadTickets() {
     this.ticketService.getTickets().subscribe(
-      (data: any[]) => {
-        this.tickets = data;
-      },
-      (error: any) => {
-        console.error('Error loading tickets:', error);
-      }
+      (data: any[]) => this.tickets = data,
+      (error: any) => console.error('Error loading tickets:', error)
     );
   }
 
@@ -59,3 +55,4 @@ export class HomeComponent implements OnInit{
   }
 
 }
+
