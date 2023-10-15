@@ -1,4 +1,4 @@
-import { HomeComponent } from "./pages/homepage/home.component";
+import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from "./pages/login/login.component";
 
 
