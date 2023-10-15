@@ -7,7 +7,7 @@ import { UserLoginReponse } from '../models/login'
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/v1/user/login';
+  private apiUrl = 'http://localhost:8080/api/v1/login';
   private currentUser: any = null;
 
   constructor(private http: HttpClient) {
@@ -15,7 +15,7 @@ export class AuthService {
     this.currentUser = storedUser;
   }
 
-  login(username: string, password: string) : Observable<UserLoginReponse> {
+  login(username: string, password: string): Observable<UserLoginReponse> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });
@@ -29,6 +29,11 @@ export class AuthService {
     return this.http.post<UserLoginReponse>(this.apiUrl, body, { headers: headers });
   }
 
+  logout(): void {
+    localStorage.removeItem('currentUser');
+    this.currentUser = null;
+  }
+
   setUser(user: any): void {
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUser = user;
@@ -38,10 +43,27 @@ export class AuthService {
     return this.currentUser;
   }
 
-  logout(): void {
-    localStorage.removeItem('currentUser');
-    this.currentUser = null;
+  getUserName():string {
+    return this.currentUser ? this.currentUser.name : null;
   }
+
+  getUserId(): number {
+    return this.currentUser ? this.currentUser.id : null;
+  }
+
+  getUserType(): string {
+    return this.currentUser ? this.currentUser.role : null;
+  }
+
+  isAgent(): boolean {
+    return this.getUserType() == "AGENT"
+  }
+
+  isCustomer(): boolean {
+    return this.getUserType() == "CUSTOMER"
+  }
+
+ 
 
   isLoggedIn(): boolean {
     return !!this.currentUser;
