@@ -1,0 +1,15 @@
+<p>edit works!</p>
+<div>
+    <h1>Redigeeri piletit</h1>
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+      <div>
+        <label for="title">Pealkiri</label>
+        <input type="text" id="title" name="title" [(ngModel)]="ticket.title" required>
+      </div>
+      <div>
+        <label for="description">Kirjeldus</label>
+        <textarea id="description" name="description" [(ngModel)]="ticket.description" required></textarea>
+      </div>
+      <button type="submit">Save changes</button>
+    </form>
+  </div>

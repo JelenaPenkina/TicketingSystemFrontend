@@ -1,0 +1,40 @@
+<p>customer works!</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div>
+      <p>Welcome to the Ticketing System</p>
+      <a class="navbar-brand" href="#">Ticketing System</a>  
+      <button (click)="selectedOption = 'welcome'">New ticket</button>
+      <button (click)="selectedOption = 'in-progress'">In Progress</button>
+      <button (click)="selectedOption = 'done'">Done</button>
+    </div>
+    <div [ngSwitch]="selectedOption">
+      <div *ngSwitchCase="'welcome'"></div>
+      <div *ngSwitchCase="'in-progress'">
+      </div>
+      <div *ngSwitchCase="'done'">
+      </div>
+    </div>
+  </nav>
+  
+  
+  <div>
+    <form (ngSubmit)="createTicket(newTicket)">
+      <div class="form-group">
+        <label for="title">Ticket title</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newTicket.title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Ticket description</label>
+        <textarea id="description" name="description" [(ngModel)]="newTicket.description" required></textarea>
+      </div>
+      <button (click)="toggleCreateButtonClass()" [ngClass]="{'blue-button': createButtonClicked}">
+        Create ticket
+      </button>
+    </form>
+  </div>
+  
+  <!--
+    <div *ngFor="let ticket of tickets">
+    <h3>{{ ticket.title }}</h3>
+    <p>{{ ticket.description }}</p>
+  </div> -->
