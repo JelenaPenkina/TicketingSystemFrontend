@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserType } from 'src/app/enums/userType';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class NavbarComponent {
     return '/assets/images/ticketing-system.png'; 
   }
 
-  constructor(private authService: AuthService, private router: Router){}
+  currentUserType: string;
+
+  constructor(private authService: AuthService, private router: Router){
+    this.currentUserType = this.authService.getUserType();
+  }
 
   onLogout(): void{
     this.authService.logout();
@@ -21,6 +26,18 @@ export class NavbarComponent {
 
   isLoggedIn(): boolean{
     return this.authService.isLoggedIn();
+  }
+
+  userType() : string {
+    return this.authService.getUserType();
+  }
+
+  isCustomer() : boolean {
+    return this.authService.isCustomer();
+  }
+
+  isAgent() : boolean {
+    return this.authService.isAgent();
   }
 
 }

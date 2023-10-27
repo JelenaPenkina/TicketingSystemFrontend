@@ -1,1 +1,47 @@
-<p>ticket-list works!</p>
+<div class="container">
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading">
+    <p>Loading tickets...</p>
+    <!-- Optionally, you can include a spinner or loader icon here -->
+  </div>
+
+  <!-- Display Message if User is not an AGENT -->
+  <div *ngIf="!loading && userType !== 'AGENT'">
+    <p>You are not authorized to view this list.</p>
+  </div>
+
+  <!-- Ticket List Display for AGENT -->
+  <div *ngIf="!loading && userType === 'AGENT'">
+
+    <!-- Check if there are tickets to display -->
+    <div *ngIf="tickets.length > 0">
+      <h2>Tickets</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <!-- Add more columns based on properties of Ticket model -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets">
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.description }}</td>
+            <!-- Fill in other columns based on Ticket properties -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Message if there are no tickets -->
+    <div *ngIf="tickets.length === 0">
+      <p>No tickets found.</p>
+    </div>
+
+  </div>
+
+</div>

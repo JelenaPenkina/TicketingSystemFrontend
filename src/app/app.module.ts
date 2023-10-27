@@ -12,15 +12,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginDropdownComponent } from './components/navbar/login-dropdown/login-dropdown.component';
 
-import { TicketHistoryComponent } from './pages/tickets/ticket-history/ticket-history.component';
+
+
 import { TicketListComponent } from './pages/tickets/ticket-list/ticket-list.component';
 import { TicketCreateComponent } from './pages/tickets/ticket-create/ticket-create.component';
 import { TicketDetailComponent } from './pages/tickets/ticket-detail/ticket-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { UserEditComponent } from './pages/user/user-edit/user-edit.component';
+import { TicketEditComponent } from './pages/tickets/ticket-edit/ticket-edit.component';
+import { TicketDeleteComponent } from './pages/tickets/ticket-delete/ticket-delete.component';
+import { TicketCustomerComponent } from './pages/tickets/ticket-customer/ticket-customer.component';
+
 
 @NgModule({
   declarations: [
@@ -28,15 +32,17 @@ import { UserEditComponent } from './pages/user/user-edit/user-edit.component';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    LoginDropdownComponent,
-   
-    TicketHistoryComponent,
-         TicketListComponent,
-         TicketCreateComponent,
-         TicketDetailComponent,
-         RegisterComponent,
-         UserProfileComponent,
-         UserEditComponent
+    TicketListComponent,
+    TicketCreateComponent,
+    TicketDetailComponent,
+    RegisterComponent,
+    UserProfileComponent,
+    UserEditComponent,
+    TicketEditComponent,
+    TicketDeleteComponent,
+    TicketCustomerComponent,
+    
+
   ],
   imports: [
     RouterModule.forRoot(routes),

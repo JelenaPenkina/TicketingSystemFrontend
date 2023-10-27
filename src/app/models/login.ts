@@ -1,6 +1,6 @@
 export interface UserLoginReponse {
     
-        userId: number;
+        id: number;
         name: string;
         email: string;
         userType: string;

@@ -4,6 +4,7 @@ export interface Ticket {
     title: string;
     description: string;
     userId: number;
+    
    
 
 }

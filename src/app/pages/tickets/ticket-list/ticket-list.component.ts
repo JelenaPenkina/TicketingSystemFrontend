@@ -15,7 +15,10 @@ export class TicketListComponent implements OnInit {
   loading: boolean= true;
   tickets: Ticket[] = [];
 
-constructor( private ticketService: TicketService, private authService: AuthService){}
+constructor( 
+  private ticketService: TicketService, 
+  private authService: AuthService
+  ){}
 
 
 handleTicketsResponse  = (data: Ticket[] ) => {
@@ -35,13 +38,15 @@ ngOnInit(): void{
   this.userType = this.authService.getUserType();
 
   if(this.userType === 'AGENT') {
-    // If user is AGENT, fetch all tickets
-    this.ticketService.getAllTickets().subscribe(this.handleTicketsResponse, this.handleError);
+    this.ticketService.getAllTickets().subscribe(
+        this.handleTicketsResponse,
+        this.handleError
+    );
   } else {
-    // If user is CUSTOMER, fetch only their tickets
-    const userId = this.authService.getUserId();
-    this.ticketService.getTicketByUserId(userId).subscribe(this.handleTicketsResponse, this.handleError);
+    // Error handling if not agent. Return message in html
   }
 }
+
+
 
 }

@@ -11,23 +11,28 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/'">Home</a>
+
+        <li class="nav-item"  *ngIf="isCustomer()">
+          <a class="nav-link" [routerLink]="'/ticket-create'">Create Ticket</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/create-ticket'">Create Ticket</a>
+        <li class="nav-item" *ngIf="isAgent()">
+          <a class="nav-link" [routerLink]="'/ticket-list'">All tickets</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/active-tickets'">All tickets</a>
+        <li class="nav-item" *ngIf="currentUserType">
+          <a class="nav-link" [routerLink]="'/ticket-user'">Tickets</a>
+      </li>
+      
+        <li class="nav-item" *ngIf="isAgent()">
+          <a class="nav-link" [routerLink]="'/ticket-edit'">Edit Tickets</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/ticket-history'">Ticket History</a>
+        <li class="nav-item" *ngIf="isAgent()">
+          <a class="nav-link" [routerLink]="'/ticket-delete'">Delete Tickets</a>
         </li>
         <li class="nav-item" *ngIf="!isLoggedIn()">
           <a class="nav-link" [routerLink]="'/log-in'">Log in</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/active-tickets'">Register</a>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" [routerLink]="'/register'">Register</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
           <button (click)="onLogout()">Log Out</button>
@@ -35,7 +40,7 @@
       </ul>
     </div>
 
-    <!-- <app-login-dropdown></app-login-dropdown> -->
+     
   </div>
 
 </nav>
