@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserLoginReponse } from '../models/login';
+import { UserLoginReponse } from '../models/userLoginResponse';
 
 
 @Injectable({
@@ -33,7 +33,7 @@ export class AuthService {
     body = body.append('username', username);
     body = body.append('password', password);
 
-    console.log(body.toString())
+    // console.log(body.toString())
 
     return this.http.post<UserLoginReponse>(this.logInapiUrl, body, { headers: headers, withCredentials: true });
   }

@@ -3,6 +3,7 @@ import { Ticket } from 'src/app/models/ticket';
 import { AuthService } from 'src/app/services/auth.service';
 import { TicketService } from 'src/app/services/ticket.service';
 import { Router } from '@angular/router';
+import { UserTicketRequest } from 'src/app/models/userTicketRequest';
 
 @Component({
   selector: 'app-ticket-create',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./ticket-create.component.css']
 })
 export class TicketCreateComponent {
-  ticket: Ticket = {
+  ticket: UserTicketRequest = {
     id:1,
     title: '',
     description: '',
@@ -28,7 +29,7 @@ export class TicketCreateComponent {
 
   createTicket() {
     this.ticketService.createTicket(this.ticket)
-    .subscribe((data:Ticket) => {
+    .subscribe((data:UserTicketRequest) => {
       // handle the response, maybe navigate to another page or show a success message
       this.authService.getUserId();
       this.authService.getUser();

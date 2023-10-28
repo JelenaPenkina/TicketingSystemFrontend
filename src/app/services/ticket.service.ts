@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Ticket } from '../models/ticket';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { UserTicketRequest } from '../models/userTicketRequest';
 // import { environment } from 'src/enviroments/enviroment';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class TicketService {
 
   constructor(private http: HttpClient) { }
 
-  private handleResponse(response: any): any {
+  handleResponse(response: any): any {
     console.log("Response received:", response);
     return response;
   }
@@ -30,7 +31,7 @@ export class TicketService {
 
   }
 
-  createTicket(ticket: Ticket): Observable<Ticket> {
+  createTicket(ticket: UserTicketRequest): Observable<Ticket> {
     console.log("Sending ticket:", ticket);
     console.log(this.apiUrl + "/customer");
     return this.http.post<Ticket>(`${this.apiUrl}/customer`, ticket, { withCredentials: true });

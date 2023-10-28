@@ -1,17 +1,13 @@
 <div class="container">
 
-  <!-- Loading Spinner -->
   <div *ngIf="loading">
     <p>Loading tickets...</p>
-    <!-- Optionally, you can include a spinner or loader icon here -->
   </div>
 
-  <!-- Display Message if User is not an AGENT -->
   <div *ngIf="!loading && userType !== 'AGENT'">
     <p>You are not authorized to view this list.</p>
   </div>
 
-  <!-- Ticket List Display for AGENT -->
   <div *ngIf="!loading && userType === 'AGENT'">
 
     <!-- Check if there are tickets to display -->
@@ -23,7 +19,12 @@
             <th>ID</th>
             <th>Title</th>
             <th>Description</th>
-            <!-- Add more columns based on properties of Ticket model -->
+            <th>Creation Date</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>User ID</th>
+            <th>Comments</th>
+            <th>History Log</th>
           </tr>
         </thead>
         <tbody>
@@ -31,18 +32,28 @@
             <td>{{ ticket.id }}</td>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.description }}</td>
-            <!-- Fill in other columns based on Ticket properties -->
-        </tr>
-        
+            <td>{{ ticket.creationDate }}</td>
+            <td>{{ ticket.priority }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.userId }}</td>
+            <td>
+              <!-- Assuming comments is an array of strings -->
+              <ul>
+                <li *ngFor="let comment of ticket.comments">{{ comment }}</li>
+              </ul>
+            </td>
+            <td>
+              <!-- Assuming historyLog is an array of strings -->
+              <!-- <ul>
+                <li *ngFor="let log of ticket.historyLog">{{ log }}</li>
+              </ul> -->
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
-    
-    <!-- Message if there are no tickets -->
     <div *ngIf="tickets.length === 0">
       <p>No tickets found.</p>
     </div>
-
   </div>
-
 </div>

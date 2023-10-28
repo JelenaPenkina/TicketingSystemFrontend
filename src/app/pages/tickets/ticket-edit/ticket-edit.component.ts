@@ -42,7 +42,7 @@ export class TicketEditComponent implements OnInit {
           .subscribe(
               () => {
                   alert('Ticket updated successfully!');
-                  this.router.navigate(['/ticket-detail', this.ticket.id]);
+                  this.router.navigate(['/ticket-list']);
               },
               error => console.error('Error updating ticket:', error)
           );
