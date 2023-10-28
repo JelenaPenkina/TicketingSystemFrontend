@@ -1,0 +1,41 @@
+/* Container Styles */
+.ticket-detail {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+/* Heading Style */
+.ticket-detail h2 {
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Property Styles */
+.ticket-detail p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.ticket-detail p strong {
+    color: #007BFF;
+    margin-right: 5px;
+}
+
+/* No Ticket Message */
+.no-ticket {
+    font-family: Arial, sans-serif;
+    color: #999;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+}

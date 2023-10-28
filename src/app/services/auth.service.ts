@@ -20,10 +20,7 @@ export class AuthService {
   }
 
   register(userData: any): Observable<any> {
-
     console.log(userData);
-
-
     return this.http.post(this.registerApiUrl, userData);
   }
 
@@ -47,7 +44,7 @@ export class AuthService {
   }
 
   setUser(user: any): void {
-     localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUser = user;
     console.log('Stored user:', this.currentUser);
   }
@@ -61,8 +58,6 @@ export class AuthService {
   }
 
   getUserId(): number {
-    
-    
     console.log(this.currentUser.id);
     return this.currentUser ? this.currentUser.id : null;
   }
@@ -70,7 +65,7 @@ export class AuthService {
   getUserType(): string {
     // console.log(this.currentUser.userType);
     return this.currentUser ? this.currentUser.userType : null;
-}
+  }
 
   isAgent(): boolean {
     const storedUser = this.getUserType();

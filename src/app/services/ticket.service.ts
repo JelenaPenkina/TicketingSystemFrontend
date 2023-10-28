@@ -42,7 +42,7 @@ export class TicketService {
 
   getTicketById(id: number): Observable<Ticket> {
     console.log(this.apiUrl);
-    return this.http.get<Ticket>(`${this.apiUrl}/customer/${id}`, { withCredentials: true });
+    return this.http.get<Ticket>(`${this.apiUrl}/agent/${id}`, { withCredentials: true });
   }
 
   getTicketByUserId(id: number): Observable<Ticket[]> {
@@ -56,8 +56,8 @@ export class TicketService {
     return this.http.get<Ticket>(`${this.apiUrl}/customer/${ticketId}`, { withCredentials: true });
   }
 
-updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/${id}`, ticket, { withCredentials: true });
+  updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
+    return this.http.put<Ticket>(`${this.apiUrl}/agent/${id}`, ticket, { withCredentials: true });
   }
 
   deleteTicket(id: number): Observable<void> {

@@ -1,11 +1,11 @@
-<div *ngIf="ticket">
+<div *ngIf="ticket" class="ticket-detail">
     <h2>Ticket Details</h2>
     <p><strong>ID:</strong> {{ ticket.id }}</p>
     <p><strong>Title:</strong> {{ ticket.title }}</p>
     <p><strong>Description:</strong> {{ ticket.description }}</p>
     <!-- Display other ticket properties as needed -->
   </div>
-  <div *ngIf="!ticket">
+  <div *ngIf="!ticket" class="no-ticket">
     <p>No ticket details found.</p>
-  </div>
-  
+</div>
+
