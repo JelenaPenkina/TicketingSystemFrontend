@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ticket } from 'src/app/models/ticket';
 import { AuthService } from 'src/app/services/auth.service';
 import { TicketService } from 'src/app/services/ticket.service';
@@ -17,7 +18,8 @@ export class TicketListComponent implements OnInit {
 
 constructor( 
   private ticketService: TicketService, 
-  private authService: AuthService
+  private authService: AuthService,
+  private router: Router
   ){}
 
 
@@ -38,13 +40,18 @@ ngOnInit(): void{
   this.userType = this.authService.getUserType();
 
   if(this.userType === 'AGENT') {
-    this.ticketService.getAllTickets().subscribe(
-        this.handleTicketsResponse,
-        this.handleError
-    );
+    this.ticketService.getAllTickets()
+      .subscribe(
+        this.handleTicketsResponse,  // Called on successful response
+        this.handleError             // Called on error
+      );
   } else {
     // Error handling if not agent. Return message in html
   }
+}
+
+viewTicketDetails(ticketId: number): void {
+  this.router.navigate(['/ticket-detail', ticketId]);
 }
 
 

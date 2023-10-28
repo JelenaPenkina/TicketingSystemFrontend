@@ -27,12 +27,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ticket of tickets">
+          <tr *ngFor="let ticket of tickets" (click)="viewTicketDetails(ticket.id)" class="clickable-row">
             <td>{{ ticket.id }}</td>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.description }}</td>
             <!-- Fill in other columns based on Ticket properties -->
-          </tr>
+        </tr>
+        
         </tbody>
       </table>
     </div>

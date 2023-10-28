@@ -1,1 +1,26 @@
-<p>ticket-customer works!</p>
+<div *ngIf="tickets.length">
+    <h2>Tickets for User ID: {{userId}}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <!-- Add other ticket properties as columns if needed -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets" (click)="viewTicketDetails(ticket.id)" class="clickable-row">
+          <td>{{ticket.id}}</td>
+          <td>{{ticket.title}}</td>
+          <td>{{ticket.description}}</td>
+
+          <!-- Bind other ticket properties as needed -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!tickets.length">
+    <p>No tickets available for User ID: {{userId}}</p>
+  </div>
+  

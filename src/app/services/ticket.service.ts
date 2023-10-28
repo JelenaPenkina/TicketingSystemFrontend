@@ -10,7 +10,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class TicketService {
 
   private apiUrl = "http://localhost:8080/api/v1/ticket";
-  
+
 
   constructor(private http: HttpClient) { }
 
@@ -27,39 +27,41 @@ export class TicketService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-   
+
   }
-   // Create a new ticket
-   createTicket(ticket: Ticket): Observable<Ticket> {
+
+  createTicket(ticket: Ticket): Observable<Ticket> {
     console.log("Sending ticket:", ticket);
     console.log(this.apiUrl + "/customer");
     return this.http.post<Ticket>(`${this.apiUrl}/customer`, ticket, { withCredentials: true });
   }
 
   getAllTickets(): Observable<Ticket[]> {
-    return this.http.get<any>(`${this.apiUrl}/agent`,{ withCredentials: true });
+    return this.http.get<any>(`${this.apiUrl}/agent`, { withCredentials: true });
   }
 
-  // Fetch a single ticket by ID
   getTicketById(id: number): Observable<Ticket> {
     console.log(this.apiUrl);
-    return this.http.get<Ticket>(`${this.apiUrl}/customer/${id}`);
+    return this.http.get<Ticket>(`${this.apiUrl}/customer/${id}`, { withCredentials: true });
   }
 
   getTicketByUserId(id: number): Observable<Ticket[]> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/customer/all/${id}`, { withCredentials: true });
   }
 
- 
-
-  // Update an existing ticket
-  updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/${id}`, ticket);
+  getTicketDetailForAgent(ticketId: number): Observable<Ticket> {
+    return this.http.get<Ticket>(`${this.apiUrl}/agent/${ticketId}`, { withCredentials: true });
+  }
+  getTicketDetailForCustomer(ticketId: number): Observable<Ticket> {
+    return this.http.get<Ticket>(`${this.apiUrl}/customer/${ticketId}`, { withCredentials: true });
   }
 
-  // Delete a ticket
+updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
+    return this.http.put<Ticket>(`${this.apiUrl}/${id}`, ticket, { withCredentials: true });
+  }
+
   deleteTicket(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { withCredentials: true });
   }
 
 
