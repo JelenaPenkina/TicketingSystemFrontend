@@ -1,28 +1,53 @@
 <div class="ticket-edit">
     <h2>Edit Ticket</h2>
 
-    <!-- Dropdown for selecting a ticket to edit -->
     <div class="form-group">
         <label for="select-ticket">Select Ticket:</label>
         <select id="select-ticket" [(ngModel)]="selectedTicketId" (change)="fetchTicketDetails()">
+            <!-- Placeholder for the dropdown -->
+            <option value="" disabled selected>Select a ticket</option>
             <option *ngFor="let t of allTickets" [value]="t.id">{{ t.title }}</option>
         </select>
     </div>
 
     <form *ngIf="ticket" (ngSubmit)="updateTicket()">
+        <!-- Existing fields -->
         <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" id="title" [(ngModel)]="ticket.title" name="title" required>
         </div>
-
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea id="description" [(ngModel)]="ticket.description" name="description" required></textarea>
         </div>
 
-        <!-- Add more input fields for other ticket properties if needed -->
+        <!-- New Fields -->
+        <div class="form-group">
+            <label for="creationDate">Creation Date:</label>
+            <input type="date" id="creationDate" [(ngModel)]="ticket.creationDate" name="creationDate" required>
+        </div>
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" [(ngModel)]="ticket.priority" name="priority">
+                <option [selected]="ticket.priority === 'low'" value="low">Low</option>
+                <option [selected]="ticket.priority === 'medium'" value="medium">Medium</option>
+                <option [selected]="ticket.priority === 'high'" value="high">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" [(ngModel)]="ticket.status" name="status">
+                <option [selected]="ticket.status === 'open'" value="open">Open</option>
+                <option [selected]="ticket.status === 'in-progress'" value="in-progress">In Progress</option>
+                <option [selected]="ticket.status === 'closed'" value="closed">Closed</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="number" id="userId" [(ngModel)]="ticket.userId" name="userId" required>
+        </div>
+        <!-- Comment field is not added because it's an array of Comment objects and likely requires a different input method -->
 
         <button type="submit">Update</button>
     </form>
 </div>
-

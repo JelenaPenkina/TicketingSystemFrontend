@@ -32,7 +32,7 @@ export class TicketService {
   }
 
   createTicket(ticket: UserTicketRequest): Observable<Ticket> {
-    console.log("Sending ticket:", ticket);
+    console.log("Request: ", ticket);
     console.log(this.apiUrl + "/customer");
     return this.http.post<Ticket>(`${this.apiUrl}/customer`, ticket, { withCredentials: true });
   }

@@ -4,47 +4,47 @@ import { Ticket } from 'src/app/models/ticket';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
-  selector: 'app-ticket-edit',
-  templateUrl: './ticket-edit.component.html',
-  styleUrls: ['./ticket-edit.component.css']
+    selector: 'app-ticket-edit',
+    templateUrl: './ticket-edit.component.html',
+    styleUrls: ['./ticket-edit.component.css']
 })
 export class TicketEditComponent implements OnInit {
-  allTickets: Ticket[] = [];
-  selectedTicketId!: number;
-  ticket!: Ticket;
+    allTickets: Ticket[] = [];
+    selectedTicketId!: number;
+    ticket!: Ticket;
 
-  constructor(
-      private ticketService: TicketService,
-      private router: Router
-  ) { }
+    constructor(
+        private ticketService: TicketService,
+        private router: Router
+    ) { }
 
-  ngOnInit(): void {
-      // Fetch all tickets for the dropdown
-      this.ticketService.getAllTickets()
-          .subscribe(
-              tickets => this.allTickets = tickets,
-              error => console.error('Error fetching tickets:', error)
-          );
-  }
+    ngOnInit(): void {
+        // Fetch all tickets for the dropdown
+        this.ticketService.getAllTickets()
+            .subscribe(
+                (data) => {
+                    this.allTickets = data;
+                    console.log('Fetching all tickets');
+                }
+            );
+    }
 
-  fetchTicketDetails(): void {
-      if (this.selectedTicketId) {
-          this.ticketService.getTicketById(this.selectedTicketId)
-              .subscribe(
-                  ticket => this.ticket = ticket,
-                  error => console.error('Error fetching ticket:', error)
-              );
-      }
-  }
+    fetchTicketDetails(): void {
+        if (this.selectedTicketId) {
+            this.ticketService.getTicketById(this.selectedTicketId)
+                .subscribe(
+                    (ticket) => { this.ticket = ticket }
+                );
+        }
+    }
 
-  updateTicket(): void {
-      this.ticketService.updateTicket(this.ticket.id, this.ticket)
-          .subscribe(
-              () => {
-                  alert('Ticket updated successfully!');
-                  this.router.navigate(['/ticket-list']);
-              },
-              error => console.error('Error updating ticket:', error)
-          );
-  }
+    updateTicket(): void {
+        this.ticketService.updateTicket(this.ticket.id, this.ticket)
+            .subscribe(
+                () => {
+                    alert('Ticket updated successfully!');
+                    this.router.navigate(['/ticket-list']);
+                }
+            );
+    }
 }

@@ -1,0 +1,8 @@
+.main-container {
+    max-width: 1200px;  /* or whatever width you prefer for your content */
+    margin: 0 auto;    /* centers the container */
+  }
+  
+  .content-section {
+    padding-top: 20px; /* space between navbar and main content, adjust as needed */
+  }

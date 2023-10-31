@@ -5,6 +5,7 @@ import { TicketCreateComponent } from "./pages/tickets/ticket-create/ticket-crea
 import { TicketCustomerComponent } from "./pages/tickets/ticket-customer/ticket-customer.component";
 import { TicketDeleteComponent } from "./pages/tickets/ticket-delete/ticket-delete.component";
 import { TicketDetailComponent } from "./pages/tickets/ticket-detail/ticket-detail.component";
+import { TicketEditComponent } from "./pages/tickets/ticket-edit/ticket-edit.component";
 import { TicketListComponent } from "./pages/tickets/ticket-list/ticket-list.component";
 
 
@@ -18,6 +19,8 @@ export const routes = [
     { path : "delete", component:TicketDeleteComponent},
     { path : "ticket-user", component:TicketCustomerComponent},
     { path : "ticket-detail/:id", component:TicketDetailComponent},
+    {path: 'edit-ticket/:id',component: TicketEditComponent},
+    
 
 
     

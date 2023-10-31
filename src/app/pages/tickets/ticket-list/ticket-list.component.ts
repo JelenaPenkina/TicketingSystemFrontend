@@ -45,6 +45,11 @@ export class TicketListComponent implements OnInit {
     this.router.navigate(['/ticket-detail', ticketId]);
   }
 
+  navigateToEdit(ticketId: number) {
+    // Assuming your edit route is '/edit-ticket/:id'
+    this.router.navigate(['/edit-ticket', ticketId]);
+}
+
 
 
 }

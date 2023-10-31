@@ -1,11 +1,22 @@
 <div *ngIf="ticket" class="ticket-detail">
-    <h2>Ticket Details</h2>
+  <h2>Ticket Details</h2>
+  <div *ngIf="isAgent()">
     <p><strong>ID:</strong> {{ ticket.id }}</p>
-    <p><strong>Title:</strong> {{ ticket.title }}</p>
-    <p><strong>Description:</strong> {{ ticket.description }}</p>
-    <!-- Display other ticket properties as needed -->
+    <hr class="custom-divider">
   </div>
-  <div *ngIf="!ticket" class="no-ticket">
-    <p>No ticket details found.</p>
-</div>
+  <p><strong>Title:</strong> {{ ticket.title }}</p>
+  <hr class="custom-divider">
+  <p><strong>Description:</strong> {{ ticket.description }}</p>
+  <hr class="custom-divider">
+  <p><strong>Status:</strong> {{ ticket.status }}</p>
+  <hr class="custom-divider">
+  <p><strong>Priority:</strong> {{ ticket.description }}</p>
+  <hr class="custom-divider">
+  <p><strong>Created:</strong> {{ ticket.creationDate }}</p>
+  
 
+  
+</div>
+<div *ngIf="!ticket" class="no-ticket">
+  <p>No ticket details found.</p>
+</div>

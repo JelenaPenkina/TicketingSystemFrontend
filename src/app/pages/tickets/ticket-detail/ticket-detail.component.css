@@ -8,11 +8,21 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     background-color: #fff;
+    border-top: #333;
+    
+}
+
+.ticket-detail .custom-divider {
+    border: 0;  /* Removes default border */
+    height: 1px;  /* Sets the height of the divider */
+    background-color: #000000;  /* Sets the color of the divider */
+    margin: 20px 0;  /* Gives some space above and below the divider */
 }
 
 /* Heading Style */
 .ticket-detail h2 {
     color: #333;
+    
     margin-bottom: 25px;
     text-align: center;
     border-bottom: 2px solid #eee;
@@ -24,6 +34,7 @@
     font-size: 16px;
     margin-bottom: 15px;
     line-height: 1.5;
+    border: #333;
 }
 
 .ticket-detail p strong {

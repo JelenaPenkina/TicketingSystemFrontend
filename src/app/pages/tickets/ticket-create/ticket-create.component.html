@@ -1,21 +1,16 @@
 <div class="ticket-create">
-    <h2>Create a Ticket</h2>
-  
-    <form (ngSubmit)="createTicket()">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" [(ngModel)]="ticket.title" name="title" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea id="description" [(ngModel)]="ticket.description" name="description" required></textarea>
-      </div>
-  
-      <!-- Hidden User ID field (assuming you get this from somewhere else like AuthService) -->
-      <!-- <input type="hidden" [(ngModel)]="ticket.userId" name="userId"> -->
-  
-      <button type="submit">Create</button>
-    </form>
-  </div>
-  
+  <h2>Create a Ticket</h2>
+
+  <form (ngSubmit)="createTicket()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="ticket.title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="ticket.description" name="description" required></textarea>
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>

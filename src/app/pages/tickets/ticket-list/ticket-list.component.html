@@ -25,7 +25,7 @@
             <th>User ID</th>
             <th>Comments</th>
             <th>History Log</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
           <tr *ngFor="let ticket of tickets" (click)="viewTicketDetails(ticket.id)" class="clickable-row">
@@ -48,6 +48,9 @@
                 <li *ngFor="let log of ticket.historyLog">{{ log }}</li>
               </ul> -->
             </td>
+            <td>
+              <button (click)="navigateToEdit(ticket.id)">Edit</button>
+          </td>
           </tr>
         </tbody>
       </table>

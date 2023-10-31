@@ -10,9 +10,9 @@ import { TicketService } from 'src/app/services/ticket.service';
   styleUrls: ['./ticket-detail.component.css']
 })
 export class TicketDetailComponent implements OnInit {
-  ticket!: Ticket ; //| null = null
-  ticketId!: number ;
-  userType!: string ;
+  ticket!: Ticket; //| null = null
+  ticketId!: number;
+  userType!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +33,7 @@ export class TicketDetailComponent implements OnInit {
       this.ticketService.getTicketDetailForAgent(this.ticketId).subscribe(
         data => {
           this.ticket = data;
+          console.log(data)
         });
     } else if (this.userType === 'CUSTOMER') {
       this.ticketService.getTicketDetailForCustomer(this.ticketId).subscribe(
@@ -43,5 +44,10 @@ export class TicketDetailComponent implements OnInit {
       console.error('Invalid userType:', this.userType);
     }
   }
-  
+isAgent(): boolean {
+    return this.authService.isAgent();
+  }
+
+
+
 }
